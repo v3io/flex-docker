@@ -130,7 +130,7 @@ if ! command -v uuidgen >/dev/null 2>&1; then
 fi
 
 if [ "$op" = "init" ]; then
-  /bin/bash -e install.sh &> /dev/null
+  /bin/bash $(dirname "$0")/install.sh &> /dev/null
   log '{"status": "Success", "capabilities": {"attach": false}}'
   exit 0
 fi

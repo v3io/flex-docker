@@ -52,16 +52,16 @@ spec:
     image: nginx
     volumeMounts:
     - name: test
-      mountPath: /data
+      mountPath: /opt
     ports:
     - containerPort: 80
   volumes:
   - name: test
     flexVolume:
-      driver: "dims.io/docker-flexvol"
+      driver: v3io/docker
       options:
-        image: "my-container-image"
-        name: "/data-store"
+        image: igzv3/hadoop
+        name: /opt/hadoop
 ```
 
 This will use the `/data-store` volume on the `my-container-image` and mount it on the nginx pod under `/data` directory.  
