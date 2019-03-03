@@ -12,6 +12,7 @@ HAS_APT=$(which apt &> /dev/null; echo $?)
 
 if [ "${HAS_YUM}" == "0" ]; then
     PKG_MANAGER="yum"
+    yum install -y epel-release
 elif [ "${HAS_APT}" == "0" ]; then
     PKG_MANAGER="apt-get"
     apt-get update
