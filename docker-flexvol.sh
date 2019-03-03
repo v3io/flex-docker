@@ -119,17 +119,8 @@ unmount() {
 
 op=$1
 
-if ! command -v jq >/dev/null 2>&1; then
-  err "{ \"status\": \"Failure\", \"message\": \"'jq' binary not found. Please install jq package before using this driver\"}"
-  exit 1
-fi
-
-if ! command -v uuidgen >/dev/null 2>&1; then
-  err "{ \"status\": \"Failure\", \"message\": \"'uuidgen' binary not found. Please install jq package before using this driver\"}"
-  exit 1
-fi
-
 if [ "$op" = "init" ]; then
+  /bin/bash $(dirname "$0")/install.sh &> /dev/null
   log '{"status": "Success", "capabilities": {"attach": false}}'
   exit 0
 fi
