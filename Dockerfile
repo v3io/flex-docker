@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.21
 
 COPY hack/scripts/deploy.sh /usr/local/bin
 COPY hack/scripts/install.sh /install.sh
